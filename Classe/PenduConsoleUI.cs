@@ -1,6 +1,4 @@
-﻿using System;
-
-public class PenduConsoleUI
+﻿public class PenduConsoleUI
 {
     private Pendu _jeuPendu;
 
@@ -21,7 +19,6 @@ public class PenduConsoleUI
         AfficherResultat();
     }
 
-
     public void AfficherMasque()
     {
         Console.WriteLine("Mot à deviner: " + _jeuPendu.GetMasque());
@@ -29,9 +26,20 @@ public class PenduConsoleUI
 
     public char DemanderLettre()
     {
-        Console.Write("Entrez une lettre: ");
-        string input = Console.ReadLine();
-        return !string.IsNullOrWhiteSpace(input) && input.Length == 1 ? input[0] : ' ';
+        while (true)
+        {
+            Console.Write("Entrez une lettre: ");
+            string input = Console.ReadLine();
+
+            if (!string.IsNullOrWhiteSpace(input) && input.Length == 1 && char.IsLetter(input[0]))
+            {
+                return char.ToLower(input[0]);
+            }
+            else
+            {
+                Console.WriteLine("Entrée invalide. Veuillez entrer une seule lettre.");
+            }
+        }
     }
 
     public void AfficherResultat()

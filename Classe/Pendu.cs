@@ -6,7 +6,11 @@
 
     public Pendu(string mot)
     {
-        _motATrouver = mot;
+        if (string.IsNullOrWhiteSpace(mot) || !mot.All(char.IsLetter))
+        {
+            throw new ArgumentException("Le mot à deviner doit être non nul et ne contenir que des lettres.");
+        }
+        _motATrouver = mot.ToLower();
         GenererMasque();
         _nombreEssais = 10;
     }
