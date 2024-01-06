@@ -4,7 +4,7 @@
     {
         try
         {
-            string motADeviner = "exemple";
+            string motADeviner = Pendu.ObtenirMotAleatoire();
             Pendu jeuPendu = new Pendu(motADeviner);
             PenduConsoleUI ui = new PenduConsoleUI(jeuPendu);
             ui.Jouer();

@@ -62,4 +62,21 @@
     {
         return _motATrouver;
     }
+
+    public static string ObtenirMotAleatoire()
+    {
+        string[] mots = {
+        "ordinateur", "clavier", "souris", "écran", "tableau",
+        "chaise", "fenêtre", "livre", "téléphone", "stylo",
+        "bouteille", "lampe", "sac", "horloge", "photo",
+        "papier", "ciseaux", "carte", "fleur", "cahier",
+        "verre", "montre", "porte", "clé", "voiture",
+        "arbre", "ciel", "soleil", "lune", "étoile"
+    };
+
+        Random random = new Random();
+        int index = random.Next(mots.Length);
+        return mots[index];
+    }
+
 }
