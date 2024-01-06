@@ -3,14 +3,16 @@
     private string _masque;
     private int _nombreEssais;
     private string _motATrouver;
+    private string _indice;
 
-    public Pendu(string mot)
+    public Pendu(string mot, string indice)
     {
         if (string.IsNullOrWhiteSpace(mot) || !mot.All(char.IsLetter))
         {
             throw new ArgumentException("Le mot à deviner doit être non nul et ne contenir que des lettres.");
         }
         _motATrouver = mot.ToLower();
+        _indice = indice;
         GenererMasque();
         _nombreEssais = 10;
     }
@@ -63,20 +65,8 @@
         return _motATrouver;
     }
 
-    public static string ObtenirMotAleatoire()
+    public string Indice
     {
-        string[] mots = {
-        "ordinateur", "clavier", "souris", "écran", "tableau",
-        "chaise", "fenêtre", "livre", "téléphone", "stylo",
-        "bouteille", "lampe", "sac", "horloge", "photo",
-        "papier", "ciseaux", "carte", "fleur", "cahier",
-        "verre", "montre", "porte", "clé", "voiture",
-        "arbre", "ciel", "soleil", "lune", "étoile"
-    };
-
-        Random random = new Random();
-        int index = random.Next(mots.Length);
-        return mots[index];
+        get { return _indice; }
     }
-
 }

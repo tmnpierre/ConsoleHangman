@@ -4,8 +4,8 @@
     {
         try
         {
-            string motADeviner = Pendu.ObtenirMotAleatoire();
-            Pendu jeuPendu = new Pendu(motADeviner);
+            var (mot, indice) = Pendu.ObtenirMotEtIndiceAleatoire();
+            Pendu jeuPendu = new Pendu(mot, indice);
             PenduConsoleUI ui = new PenduConsoleUI(jeuPendu);
             ui.Jouer();
         }

@@ -9,6 +9,7 @@
 
     public void Jouer()
     {
+        Console.WriteLine("Indice: " + _jeuPendu.Indice);
         while (!_jeuPendu.TestWin() && _jeuPendu.GetNombreEssais() > 0)
         {
             AfficherMasque();
