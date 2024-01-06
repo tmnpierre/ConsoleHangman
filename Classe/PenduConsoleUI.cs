@@ -9,6 +9,18 @@
             _jeuPendu = jeuPendu;
         }
 
+        public void Jouer()
+        {
+            while (!_jeuPendu.TestWin() && _jeuPendu.GetNombreEssais() > 0)
+            {
+                AfficherMasque();
+                AfficherNombreEssais();
+                char lettre = DemanderLettre();
+                _jeuPendu.TestChar(lettre);
+            }
+            AfficherResultat();
+        }
+
         public void AfficherMasque()
         {
             Console.WriteLine("Mot à deviner: " + _jeuPendu.GetMasque());
@@ -16,15 +28,9 @@
 
         public char DemanderLettre()
         {
-            char lettre;
-            do
-            {
-                Console.Write("Entrez une lettre: ");
-                string input = Console.ReadLine();
-                lettre = !string.IsNullOrWhiteSpace(input) && input.Length == 1 ? input[0] : ' ';
-            } while (lettre == ' ');
-
-            return lettre;
+            Console.Write("Entrez une lettre: ");
+            string input = Console.ReadLine();
+            return !string.IsNullOrWhiteSpace(input) && input.Length == 1 ? input[0] : ' ';
         }
 
         public void AfficherResultat()
@@ -42,18 +48,6 @@
         public void AfficherNombreEssais()
         {
             Console.WriteLine("Nombre d'essais restants: " + _jeuPendu.GetNombreEssais());
-        }
-
-        public void Jouer()
-        {
-            while (!_jeuPendu.TestWin() && _jeuPendu.GetNombreEssais() > 0)
-            {
-                AfficherMasque();
-                AfficherNombreEssais();
-                char lettre = DemanderLettre();
-                _jeuPendu.TestChar(lettre);
-            }
-            AfficherResultat();
         }
     }
 }

@@ -55,5 +55,10 @@
         {
             return _nombreEssais;
         }
+
+        public string GetMotATrouver()
+        {
+            return _motATrouver;
+        }
     }
 }
