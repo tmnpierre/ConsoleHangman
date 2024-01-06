@@ -21,6 +21,7 @@ public class PenduConsoleUI
         AfficherResultat();
     }
 
+
     public void AfficherMasque()
     {
         Console.WriteLine("Mot à deviner: " + _jeuPendu.GetMasque());
