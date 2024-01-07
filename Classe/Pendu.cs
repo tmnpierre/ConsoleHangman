@@ -69,4 +69,16 @@
     {
         get { return _indice; }
     }
+
+    public static (string Mot, string Indice) ObtenirMotEtIndiceAleatoire()
+    {
+        var motsEtIndices = new (string Mot, string Indice)[] {
+            ("ordinateur", "Appareil électronique de traitement de l'information"),
+            // ... ajoutez d'autres mots et indices ici ...
+        };
+
+        Random random = new Random();
+        int index = random.Next(motsEtIndices.Length);
+        return motsEtIndices[index];
+    }
 }
