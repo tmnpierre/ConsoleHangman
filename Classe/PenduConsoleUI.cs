@@ -11,12 +11,7 @@
 
     public void Jouer()
     {
-        Console.WriteLine("██████╗ ███████╗███╗   ██╗██████╗ ██╗   ██╗");
-        Console.WriteLine("██╔══██╗██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝");
-        Console.WriteLine("██████╔╝█████╗  ██╔██╗ ██║██║  ██║ ╚████╔╝ ");
-        Console.WriteLine("██╔═══╝ ██╔══╝  ██║╚██╗██║██║  ██║  ╚██╔╝  ");
-        Console.WriteLine("██║     ███████╗██║ ╚████║██████╔╝   ██║   ");
-        Console.WriteLine("╚═╝     ╚══════╝╚═╝  ╚═══╝╚═════╝    ╚═╝   ");
+        AfficherArtAscii();
         Console.WriteLine("\nBienvenue dans le jeu du Pendu!");
         Console.WriteLine("Indice: " + _jeuPendu.Indice);
 
@@ -28,6 +23,7 @@
             char lettre = DemanderLettre();
 
             Console.Clear();
+            AfficherArtAscii();
 
             if (!_lettresSaisies.Contains(lettre))
             {
@@ -37,6 +33,16 @@
         }
 
         AfficherResultat();
+    }
+
+    private void AfficherArtAscii()
+    {
+        Console.WriteLine("██████╗ ███████╗███╗   ██╗██████╗ ██╗   ██╗");
+        Console.WriteLine("██╔══██╗██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝");
+        Console.WriteLine("██████╔╝█████╗  ██╔██╗ ██║██║  ██║ ╚████╔╝ ");
+        Console.WriteLine("██╔═══╝ ██╔══╝  ██║╚██╗██║██║  ██║  ╚██╔╝  ");
+        Console.WriteLine("██║     ███████╗██║ ╚████║██████╔╝   ██║   ");
+        Console.WriteLine("╚═╝     ╚══════╝╚═╝  ╚═══╝╚═════╝    ╚═╝   ");
     }
 
     public void AfficherMasque()
