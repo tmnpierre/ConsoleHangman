@@ -27,6 +27,8 @@
             AfficherNombreEssais();
             char lettre = DemanderLettre();
 
+            Console.Clear();
+
             if (!_lettresSaisies.Contains(lettre))
             {
                 _jeuPendu.TestChar(lettre);
