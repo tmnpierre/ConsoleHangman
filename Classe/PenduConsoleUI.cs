@@ -1,23 +1,48 @@
 ﻿public class PenduConsoleUI
 {
     private Pendu _jeuPendu;
+    private HashSet<char> _lettresSaisies;
 
     public PenduConsoleUI(Pendu jeuPendu)
     {
         _jeuPendu = jeuPendu;
+        _lettresSaisies = new HashSet<char>();
     }
 
     public void Jouer()
     {
+        AfficherArtAscii();
+        Console.WriteLine("\nBienvenue dans le jeu du Pendu!");
         Console.WriteLine("Indice: " + _jeuPendu.Indice);
+
         while (!_jeuPendu.TestWin() && _jeuPendu.GetNombreEssais() > 0)
         {
             AfficherMasque();
+            AfficherLettresSaisies();
             AfficherNombreEssais();
             char lettre = DemanderLettre();
-            _jeuPendu.TestChar(lettre);
+
+            Console.Clear();
+            AfficherArtAscii();
+
+            if (!_lettresSaisies.Contains(lettre))
+            {
+                _jeuPendu.TestChar(lettre);
+                _lettresSaisies.Add(lettre);
+            }
         }
+
         AfficherResultat();
+    }
+
+    private void AfficherArtAscii()
+    {
+        Console.WriteLine("██████╗ ███████╗███╗   ██╗██████╗ ██╗   ██╗");
+        Console.WriteLine("██╔══██╗██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝");
+        Console.WriteLine("██████╔╝█████╗  ██╔██╗ ██║██║  ██║ ╚████╔╝ ");
+        Console.WriteLine("██╔═══╝ ██╔══╝  ██║╚██╗██║██║  ██║  ╚██╔╝  ");
+        Console.WriteLine("██║     ███████╗██║ ╚████║██████╔╝   ██║   ");
+        Console.WriteLine("╚═╝     ╚══════╝╚═╝  ╚═══╝╚═════╝    ╚═╝   ");
     }
 
     public void AfficherMasque()
@@ -58,5 +83,15 @@
     public void AfficherNombreEssais()
     {
         Console.WriteLine("Nombre d'essais restants: " + _jeuPendu.GetNombreEssais());
+    }
+
+    public void AfficherLettresSaisies()
+    {
+        Console.Write("Lettres saisies: ");
+        foreach (char lettre in _lettresSaisies)
+        {
+            Console.Write(lettre + " ");
+        }
+        Console.WriteLine();
     }
 }

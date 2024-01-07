@@ -69,4 +69,45 @@
     {
         get { return _indice; }
     }
+
+    public static (string Mot, string Indice) ObtenirMotEtIndiceAleatoire()
+    {
+        var motsEtIndices = new (string Mot, string Indice)[] {
+        ("ordinateur", "Appareil électronique de traitement de l'information"),
+        ("clavier", "Accessoire avec des touches pour saisir des données"),
+        ("souris", "Dispositif de pointage pour ordinateur"),
+        ("écran", "Surface d'affichage visuelle d'un ordinateur"),
+        ("tableau", "Surface plane sur laquelle on écrit"),
+        ("chaise", "Meuble pour s'asseoir"),
+        ("fenêtre", "Ouverture dans un mur pour laisser entrer la lumière"),
+        ("livre", "Ensemble de pages reliées contenant du texte ou des illustrations"),
+        ("téléphone", "Appareil de communication à distance"),
+        ("stylo", "Outil pour écrire ou dessiner"),
+        ("bouteille", "Récipient pour liquides avec un goulot étroit"),
+        ("lampe", "Appareil produisant de la lumière"),
+        ("sac", "Conteneur souple pour transporter des objets"),
+        ("horloge", "Instrument de mesure du temps"),
+        ("photo", "Image prise par un appareil photographique"),
+        ("papier", "Matériau fin utilisé pour écrire ou imprimer"),
+        ("ciseaux", "Outil avec deux lames pour couper"),
+        ("carte", "Représentation géographique plane d'une région"),
+        ("fleur", "Partie colorée d'une plante produisant des graines"),
+        ("cahier", "Ensemble de feuilles de papier utilisées pour écrire"),
+        ("verre", "Récipient transparent pour boire"),
+        ("montre", "Appareil portable indiquant l'heure"),
+        ("porte", "Panneau mobile permettant d'entrer ou de sortir"),
+        ("clé", "Outil pour actionner une serrure"),
+        ("voiture", "Véhicule motorisé pour le transport de personnes"),
+        ("arbre", "Plante ligneuse de grande taille"),
+        ("ciel", "Espace visible au-dessus de la terre"),
+        ("soleil", "Étoile autour de laquelle la terre gravite"),
+        ("lune", "Satellite naturel de la terre"),
+        ("étoile", "Corps céleste brillant dans le ciel nocturne")
+    };
+
+        Random random = new Random();
+        int index = random.Next(motsEtIndices.Length);
+        return motsEtIndices[index];
+    }
+
 }
