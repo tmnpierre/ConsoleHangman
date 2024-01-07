@@ -1,4 +1,6 @@
-﻿public class PenduConsoleUI
+﻿using System;
+
+public class PenduConsoleUI
 {
     private Pendu _jeuPendu;
 
@@ -9,7 +11,15 @@
 
     public void Jouer()
     {
+        Console.WriteLine("██████╗ ███████╗███╗   ██╗██████╗ ██╗   ██╗");
+        Console.WriteLine("██╔══██╗██╔════╝████╗  ██║██╔══██╗╚██╗ ██╔╝");
+        Console.WriteLine("██████╔╝█████╗  ██╔██╗ ██║██║  ██║ ╚████╔╝ ");
+        Console.WriteLine("██╔═══╝ ██╔══╝  ██║╚██╗██║██║  ██║  ╚██╔╝  ");
+        Console.WriteLine("██║     ███████╗██║ ╚████║██████╔╝   ██║   ");
+        Console.WriteLine("╚═╝     ╚══════╝╚═╝  ╚═══╝╚═════╝    ╚═╝   ");
+        Console.WriteLine("\nBienvenue dans le jeu du Pendu!");
         Console.WriteLine("Indice: " + _jeuPendu.Indice);
+
         while (!_jeuPendu.TestWin() && _jeuPendu.GetNombreEssais() > 0)
         {
             AfficherMasque();
@@ -17,6 +27,7 @@
             char lettre = DemanderLettre();
             _jeuPendu.TestChar(lettre);
         }
+
         AfficherResultat();
     }
 
